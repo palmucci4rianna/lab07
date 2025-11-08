@@ -1,6 +1,7 @@
 package it.unibo.inner;
 
 import it.unibo.inner.api.IterableWithPolicy;
+import it.unibo.inner.api.impl.IterableWithPolicyImpl;
 
 import java.util.List;
 
@@ -11,7 +12,9 @@ public class TestIterablePlain {
     private TestIterablePlain() {}
 
     private static <T> IterableWithPolicy<T> getIterableWithPolicy(T[] elements) {
-        return null; // TODO: return the implementation of IterableWithPolicy
+        //return null; 
+        // TODO: return the implementation of IterableWithPolicy
+        return new IterableWithPolicyImpl<>(elements);
     }
 
     public static void main(final String[] args) {
@@ -26,3 +29,14 @@ public class TestIterablePlain {
         assertContentEqualsInOrder(List.of("foo"), oneIterable);
     }
 }
+
+
+
+
+/*
+ * javac -d bin \
+    src/main/java/it/unibo/inner/api/Predicate.java \
+    src/main/java/it/unibo/inner/api/IterableWithPolicy.java \
+    src/main/java/it/unibo/inner/api/impl/IterableWithPolicyImpl.java \
+    src/test/java/it/unibo/inner/test/TestIterablePlain.java
+ */
