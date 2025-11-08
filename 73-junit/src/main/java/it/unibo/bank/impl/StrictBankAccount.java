@@ -10,7 +10,7 @@ public class StrictBankAccount extends SimpleBankAccount {
     /**
      * Transaction fee charged to the bank account.
      */
-    public static final double TRANSACTION_FEE = 0.1;
+    public static final double TRANSACTION_FEE = 0.10;
 
     /**
      * Builds a new {@link StrictBankAccount}.
@@ -42,7 +42,6 @@ public class StrictBankAccount extends SimpleBankAccount {
             throw new IllegalArgumentException("ID not corresponding: cannot charge management fees");
         }
     }
-
 
     /**
      * Takes an amount of money from the bank account.
