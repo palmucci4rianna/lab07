@@ -2,6 +2,7 @@ package it.unibo.inner;
 
 import it.unibo.inner.api.IterableWithPolicy;
 import it.unibo.inner.api.Predicate;
+import it.unibo.inner.api.impl.IterableWithPolicyImpl;
 import it.unibo.inner.test.api.Product;
 import it.unibo.inner.test.impl.ProductImpl;
 
@@ -15,11 +16,15 @@ public class TestIterableWithPolicy {
     private TestIterableWithPolicy() {}
 
     private static <T> IterableWithPolicy<T> makeIterableWithPolicy(final T[] elements, final Predicate<T> filter) {
-        return null; // TODO: return the implementation of IterableWithPolicy
+        //return null; 
+        // TODO: return the implementation of IterableWithPolicy
+        return new IterableWithPolicyImpl<>(elements, filter);
     }
 
     private static <T> IterableWithPolicy<T> makeIterableWithPolicy(final T[] elements) {
-        return null; // TODO: return the implementation of IterableWithPolicy
+        //return null; 
+        // TODO: return the implementation of IterableWithPolicy
+        return new IterableWithPolicyImpl<>(elements);
     }
 
     public static void main(final String[] args) {
@@ -94,3 +99,16 @@ public class TestIterableWithPolicy {
         assertContentEqualsInOrder(List.of(prod1), onlyProductOne);
     }
 }
+
+/*
+ * output:
+- As expected: [pippo, pluto] expected, and [pippo, pluto, foo, bar] received.
+- As expected: [foo, bar] expected, and [pippo, pluto, foo, bar] received.
+- As expected: [] expected, and [pippo, pluto, foo, bar] received.
+- As expected: [pippo, pluto, foo, bar] expected, and [pippo, pluto, foo, bar] received.
+- As expected: [pippo, pluto, foo, bar] expected, and [pippo, pluto, foo, bar] received.
+- As expected: [] expected, and [pippo, pluto, foo, bar] received.
+- As expected: [Product[name=Prod 2, quantity=100.0], Product[name=Prod 3, quantity=20.0], Product[name=Prod 4, quantity=35.0], Product[name=Prod 5, quantity=450.0]] expected, and [Product[name=Prod 1, quantity=0.0], Product[name=Prod 2, quantity=100.0], Product[name=Prod 3, quantity=20.0], Product[name=Prod 4, quantity=35.0], Product[name=Prod 5, quantity=450.0]] received.
+- As expected: [Product[name=Prod 2, quantity=100.0], Product[name=Prod 5, quantity=450.0]] expected, and [Product[name=Prod 1, quantity=0.0], Product[name=Prod 2, quantity=100.0], Product[name=Prod 3, quantity=20.0], Product[name=Prod 4, quantity=35.0], Product[name=Prod 5, quantity=450.0]] received.
+- As expected: [Product[name=Prod 1, quantity=0.0]] expected, and [Product[name=Prod 1, quantity=0.0], Product[name=Prod 2, quantity=100.0], Product[name=Prod 3, quantity=20.0], Product[name=Prod 4, quantity=35.0], Product[name=Prod 5, quantity=450.0]] received.
+ */

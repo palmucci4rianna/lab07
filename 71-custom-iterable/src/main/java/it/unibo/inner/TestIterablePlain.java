@@ -30,10 +30,15 @@ public class TestIterablePlain {
     }
 }
 
-
-
+/*
+ * output:
+- As expected: [pippo, pluto, paperino] expected, and [pippo, pluto, paperino] received.
+- As expected: [] expected, and [] received.
+- As expected: [foo] expected, and [foo] received.
+ */
 
 /*
+ * to compile and run:
  * javac -d bin \
     src/main/java/it/unibo/inner/api/Predicate.java \
     src/main/java/it/unibo/inner/api/IterableWithPolicy.java \
