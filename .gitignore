@@ -6,3 +6,5 @@ bin/
 .DS_Store
 # rule exception (beginning with a !): pdf files name 'myImportantFile.pdf' shoud be tracked
 !myImportantFile.pdf
+# ignore .gradlew files
+**/.gradle/
